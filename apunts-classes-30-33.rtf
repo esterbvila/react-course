@@ -1,0 +1,171 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red1\green31\blue103;\red3\green45\blue153;}
+{\*\expandedcolortbl;;\cssrgb\c0\c18185\c48021;\cssrgb\c0\c25950\c66514;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9460\viewh9660\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 30. Qu\'e8 \'e9s un component React?
+\f1\b0 \
+\
+Petita pe\'e7a de codi encapsulada re-utilitzable que pot tenir un estat o no.\
+\
+Upper Camel Case per anomenar els components. Ex: TwitterApp\
+\
+Un component pot tenir un estat o no.\
+\
+Qu\'e8 \'e9s l\'92estat?\
+\
+Per exemple, un formulari (amb inputs: nom, cognom i edat), quan \'e9s renderitzat per primera vegada t\'e9 un estat inicial. \
+\
+Aquest estat inicial \'e9s com es troba la informaci\'f3 d\'92aquest component la primera vegada, quan s\'92obre.\
+\
+El Nom, Cognom i Edat del formulari no tenen cap valor, per tant el component nom\'e9s mostra:\
+	- Nom\
+	- Cognom\
+	- Edat\
+\
+Un cop l\'92usuari comen\'e7a a escriure, fa modificacions, i al formulari i hi apareixen valors. Per exemple:\
+	- Nom: Ester\
+	- Cognom: Batllori\
+	- Edat: 25\
+\
+Cada vegada que l\'92usuari canviava una tecla i es modificava l\'92html, mostrant la informaci\'f3 en pantalla, aix\'f2 canviava l\'92estat. \
+En poques paraules, l\'92estat \'e9s com es troba la informaci\'f3 del component en un punt determinat del temps.\
+\
+
+\f0\b 31. Primera aplicaci\'f3 de React\
+
+\f1\b0 \
+Hi ha dues maneres amb les que podem treballar aplicacions de React que ja vinguin pre-configurades amb tot el que nosaltres utilitzarem.\
+\
+Una d\'92elles \'e9s el CRA o Create React App, que \'e9s el que vam utilitzar per la introducci\'f3 de js. https://create-react-app.dev/\
+\
+CRA treballa en base a webpack. A diferencia de Webpack, Vite utilitza una altra manera de fer els canvis de m\'f2duls, la qual cosa \'e9s molt m\'e9s r\'e0pid, especialment quan el projecte \'e9s m\'e9s gran. \
+\
+Vite tendeix a ser una experiencia de desenvolupament super amigable, r\'e0pida, eficient. \
+\
+Crearem l\'92aplicaci\'f3 amb les dues tecnologies, tot i que ens quedarem amb Vite.\
+\
+CRA i Vite s\'f3n les dues maneres m\'e9s populars que hi ha d\'92utilitzar Reac, sense comptar que es pot utilitzar React com una llibreria directament, copiant-la en l\'92index, com vam veure inicialment. \
+\
+A la carpeta \'91react-course\'92 fem : \
+	\cf2 - npm create vite\
+	- cd 03-counter-app-vite\
+  	- npm install\
+  	- npm run dev\cf0 \
+\
+copiem CRA : \'91npx create-react-app my-app\'92\
+	\cf3 - cd ..\
+	- npx create-react-app counter-app\
+\
+\
+
+\f0\b \cf0 32. Estructura de directorios - CRA\
+\
+
+\f1\b0 Observem que va ser creat mitjan\'e7ant npm perqu\'e8 t\'e9 un \'91package-lock.json\'92. \
+\
+\'c9s un arxiu que li diu a la nostra app de Node com va ser construida la dependencia dels moduls de node. \
+\
+L\'92arxiu \'91package-lock.json\'92 no s\'92ha de tocar mai manualment. Simplement \'e9s per dir-li a node com va ser creat i com es construeixen els moduls de node. \
+\
+Si no tinguessim aquest arxiu, quan es fa l\'92npm install, es torna a crear.\
+\
+\'91.gitignore\'92 -> tots els arxius que volem que no siguin part del nostre repo.\
+\
+Aix\'f2 \'e9s una applicaci\'f3 de Node que est\'e0 configurada de tal manera que ens serveix per crear aplicacions de React. Amb aquesta mateixa idea treballen altres framworks i llibrearies.\
+\
+\'91.gitignore\'92 ->  la carpeta \'93node_modules\'94 mai l\'92haurem de manipular directament. \
+\
+\'91package.json\'92 -> info interessant, com ara : \
+	- nom de l\'92app  (podem canviar)\
+	- versi\'f3 (podem canviar)\
+	- dependencies de producci\'f3\
+	- commandaments o scripts que podem executar r\'e0pidament amb aquest projecte\
+	-  Quin tipus de Lint volem utilitzar per detectar errors, treure warnings\'85\
+\
+\'91README.md\'92 -> arxiu de markdown, apareix en el repositori de github o alguna altra plataforma. Es pot visualitzar amb \'91Open preview\'92. El markdown \'e9s una versi\'f3 supersimplificada d\'92html\
+\
+\'91node_modules\'92 -> casi el 99% de les dependencies no arriben a la versi\'f3 de producci\'f3\
+\
+\'91public\'92-> L\'92objectiu del CRA \'e9s crear un SPA. L\'92SPA nom\'e9s t\'e9 un \'91index.html\'92, pel que tota l\'92app de react acabar\'e0 sent muntada dins del <div id=\'91root\'92></>  d\'92  \'91index.html\'92.\
+\
+\'91index.html\'92 ve configurat amb un \'91manifest.json\'92, que ajuda a que rapidament tinguem el punt incial d\'92una PWA (Progressive Web Application): per saber quina \'e9s la icona, el color, logos\'85\
+\
+\'91robots.txt\'92 -> pels boots de Google per indexar p\'e0gines.\
+\
+\'91src\'92 -> \
+	- \'91App.css\'92 -> estil global\
+	- \'91App.js\'92 -> tamb\'e9 es pot veure com \'91App.jsx\'92. S\'92aconsella que si l\'92arxiu cont\'e9 jsx acabi amb .jsx, en cas contrari, pot acabar en .js\
+	- \'91index.css\'92 -> arxiu d\'92estil global\
+	- \'91index.js\'92 -> punt d\'92entrada a de la nostra app. \
+		Importaci\'f3 d\'92estil global\
+		Import del primer component \'91App\'92\
+		Eliminar \'91reportWebVitals\'92 d\'92import. \
+		Tenim el \'91root\'92 que utilitza createRoot. Aquesta linia estableix quin \'e9s el node root per l\'92App de React. En aquest root renderitzem aquesta versi\'f3 de React, que est\'e0 b\'e9 que treballem en el mode estricte, ja que volem que ens adverteixi si estem realitzant malament algun codi, no estem seguint bones pr\'e0ctiques, etc.\
+\
+
+\f0\b 33. Estructura de directorios - Vite\
+
+\f1\b0 El projecte de Vite, per defecte, t\'e9 menys configuracions autom\'e0tiques.
+\f0\b \
+
+\f1\b0 - \'91package.json\'92 - hi ha algunes diferencies:\
+	- Menys dependencies a Vite. CRA instala moltes coses perqu\'e8 l\'92usuari no les hagi de configurar. En el cas de Vite si que s\'92ha de fer instalacions. \
+	- Forma de canviar moduls en calent de Vite - fa el canvi molt r\'e0pid sense important com de gran sigui l\'92app.\
+	- \'93dev\'94 - executa el commandament de vite, el qual realitza el live reload server\'85\
+	- \'93devDependencies\'94 - al treballar amb Typescript ..\
+- No tenim Readme\
+- Tenim \'91index.html\'92 a l\'92arrel del nostre projecte (\'91src\'92) i a CRA el teniem dins de la carpeta \'91public\'92.\
+- \'91index.html\'92 \
+	- no hi ha manifest. \
+	- modul inicial que acaba sent substiuit per altres moduls.\
+- \'91vite.config.js\'92 -> serveix per configuracions pr\'f2pies de Vite. \'c9s una manera que t\'e9 Vite de treballar, no t\'e9 a veure amb React. Al tenir plugins de React, posa React de manera global en tots els components. \
+- \'91src\'92 -> t\'e9 menys arxius\
+	- \'91App.css\'92 -> manejar l\'92estil del component App\
+	- \'91App.jsx\'92 -> Vite ho fa aix\'ed perqu\'e8 \'e9s un component de React. \
+	- \'91main.jsx\'92 -> \
+		- \'c9s l\'92equivalent a \'91index.js\'92 de CRA\
+		- En CRA crea una constant anomenada root, en Vite no hi ha constat, directament crida ReactDom.createRoot\'85 en una sola l\'ednia.\
+\
+\
+
+\f0\b 34. Hola Mundo en React\
+
+\f1\b0 - cd 03-counter-app-vite
+\f0\b \
+
+\f1\b0 - npm run dev\
+Corre per defecte en el port 3000, si est\'e0 ocupat dona un altre.\
+
+\f0\b \
+
+\f1\b0 1) Seleccionar tot el que es troba en el \'91src\'92 i ho borrem. M\'e9s f\'e0cil aprendre des de 0 i mica en mica anar constru\'efnt.\
+2) Crear main.jsx a src\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+\f0\b \
+\
+\
+
+\f1\b0 \
+\
+\
+\
+\
+\
+}
