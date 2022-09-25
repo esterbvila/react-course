@@ -35,7 +35,7 @@ console.log( { persona } );
 console.table( persona );
 
 // Si volem clonar l'objecte i crear una persona 2:
-// 𐄂 NO FER MAI així, perquè estem fent la còpia de la referència:
+// ⚠ NO FER MAI així, perquè estem fent la còpia de la referència:
 /*const persona2 = persona;
 persona2.nombre = "Peter";
 console.log( persona )

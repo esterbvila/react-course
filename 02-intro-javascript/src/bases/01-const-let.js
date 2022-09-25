@@ -1,7 +1,7 @@
 
 // Tipus de variables: const i let
 
-// 𐄂 NO utilitzar MAI VAR ja que es poden declarar 2 variables var amb el mateix nom sense que doni error. És degut a que té global scope. Exemple:  
+// ⚠ NO utilitzar MAI VAR ja que es poden declarar 2 variables var amb el mateix nom sense que doni error. És degut a que té global scope. Exemple:  
 var greeter = "hey hi";
 var times = 4;
 if (times > 3) {
@@ -10,7 +10,7 @@ if (times > 3) {
 }
 console.log(greeter) // "say Hello instead"
 
-// 𐄂 En canvi les variables LET i CON, NO poden ser declarades més d'una vegada amb el mateix nom en el mateix scope, donen error :
+// ⚠ En canvi les variables LET i CON, NO poden ser declarades més d'una vegada amb el mateix nom en el mateix scope, donen error :
 /* let greeter2 = "hey hi";
 let times2 = 4;
 if (times2 > 3) {
@@ -45,12 +45,12 @@ console.log(greeter4) // "hey hi"
 // ✓ LET permet canviar el valor d'una variable:
 let valorDado = 5;
 valorDado = 4;
-// 𐄂 let valorDado = 6
+// ⚠ let valorDado = 6
 
-// 𐄂 CONST NO permet canviar el valor d'una variable:
+// ⚠ CONST NO permet canviar el valor d'una variable:
 /* const valorDado2 = 5;
 valorDado2 = 4; */
-// 𐄂 Uncaught TypeError: Assignment to constant variable
+// ⚠ Uncaught TypeError: Assignment to constant variable
 
 // Cada declaració CONST ha de ser inicialitzada quan es declara. 
 const greeting = {
@@ -59,10 +59,10 @@ const greeting = {
 }
 
 // Els objectes declarats amb CONST, tot i que tampoc podem canviar-los el valor, sí que podem canviar-los les propietats:
-/*greeting = {
+/* greeting = {
   words: "Hello",
   number: "five"
-} */ // 𐄂 error: Assignment to constant variable.
+} */ // ⚠ error: Assignment to constant variable.
 
 greeting.message = "say Hello instead"; // ✓
 

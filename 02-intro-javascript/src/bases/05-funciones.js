@@ -1,5 +1,5 @@
 
-// Funciones
+// Funcions
 
 // 𐄂 NO RECOMENAT fer funcions així, perquè és fàcil que accidentament es creui amb una altra variable.
 function saludar( nombre ) {

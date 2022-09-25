@@ -1,11 +1,12 @@
 
-// Arrays
+// Arrays. Un array és una col·lecció d'informació que es troba dins d'una mateixa variable
 
-// Un array és una col·lecció d'informació que es troba dins d'una mateixa variable
-// NO es recomana iniciar un array així
+// ⚠ NO es recomana iniciar un array així
 const arreglo = new Array();
+
 // A no ser que es vulgui crear un array amb valors definits a l'iniciar. Per exemple, amb 100 posicions buides. 
 const arreglo2 = new Array(100);
+
 // No vol dir que més tard no el pugui seguir expandint:
 arreglo2.push(1);
 
