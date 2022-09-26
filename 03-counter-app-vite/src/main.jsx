@@ -1,18 +1,40 @@
 
-/* -------- 42. DefaultProps  -------- */
-
+/* -------- 43. Tasca - Component CounterApp  -------- */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { FirstApp } from './FirstApp';
+import { CounterApp } from './CounterApp';
 
 import './styles.css';
 
 
 ReactDOM.createRoot( document.getElementById('root') ).render(
   <React.StrictMode>
-    <FirstApp/> 
+    <CounterApp value={ 103 }/> 
   </React.StrictMode>
 )
+
+
+
+
+
+
+/* -------- 42. DefaultProps  -------- */
+
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import { FirstApp } from './FirstApp';
+
+// import './styles.css';
+
+
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <FirstApp/> 
+//   </React.StrictMode>
+// )
+
+
+
 
 
 /* -------- 41. PropTypes  -------- */

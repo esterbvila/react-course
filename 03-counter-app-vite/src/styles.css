@@ -13,6 +13,11 @@ html, body {
   padding: 70px;
 }
 
+button{
+  font-size:1.3rem;
+  padding: 15px;
+}
+
 /* Per ordenar alfaveticament les propietats, les seleccionem tots -> Command + Shift + p -> Sort lines ascending */
 
 /* Com vull que això sigui un estil global, que tota l'app ho utilitzi, el puc col·locar com una referencia a 'main.jsx'  */

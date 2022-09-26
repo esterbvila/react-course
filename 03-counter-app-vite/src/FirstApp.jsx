@@ -1,11 +1,4 @@
 
-/* -------- 43. Tasca - Component CounterApp  -------- */
-
-
-
-
-
-
 /* -------- 42. DefaultProps  -------- */
 
 // Si a les properties els volem definir valors per defecte, és a dir, que quan no se'ls passi cap valor en puguin tenir sempre un disponible:
