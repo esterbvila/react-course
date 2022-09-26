@@ -1,5 +1,15 @@
 
+/* -------- 37. Retornar elementos en el Componente - Fragment -------- */
+
+
+
+
+
+
+
 /* -------- 35. Nuestro Primer Componente -------- */
+
+// import React from 'react';
 
 // Punt d'entrada de l'applicació primer component:
 // function App() { 
@@ -20,7 +30,6 @@
 
 
 // Si escribim el shortcut 'rafc' i pressionem 'tab', ens crea un functional component.
-import React from 'react'
 
 export const HelloWorldApp = () => {
   return (

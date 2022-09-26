@@ -1,8 +1,32 @@
 
-/* -------- 35. Nuestro Primer Componente -------- */
+
+/* -------- 37. Retornar elementos en el Componente - Fragment -------- */
+
+
+
+
+
+/* -------- 36. Tarea: Crear un nuevo Componente -------- */
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { FirstApp } from './FirstApp';
+import { HelloWorldApp } from './HelloWorldApp';
+
+ReactDOM.createRoot( document.getElementById('root') ).render(
+  <React.StrictMode>
+    <HelloWorldApp />
+    <FirstApp />
+  </React.StrictMode>
+)
+
+
+
+
+/* -------- 35. Nuestro Primer Componente -------- */
+
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
 
 // Dues maneres d'importar un component, depenent de com l'exportem:
   // a)  Afegint 'export' davant:
@@ -13,14 +37,14 @@ import ReactDOM from 'react-dom/client';
     // Com estem exportant el component per defecte, TOT el que s'està exportant és el nostre component, no pot ser rés més. Per tant se li posa el nom que es vol i no es posa entre {}. Per exemple, en comptes de 'App' podriem escriure 'import HelloWorldApp from './HelloWorldApp'' i funcionaria igual. A la renderització també li canviariem el nom.
 
 // Donat que li hem canviat el nom del component, fem un altre import:
-import { HelloWorldApp } from './HelloWorldApp';
+// import { HelloWorldApp } from './HelloWorldApp';
 
 // Renderització:
-ReactDOM.createRoot( document.getElementById('root') ).render(
-  <React.StrictMode>
-    <HelloWorldApp />
-  </React.StrictMode>
-)
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <HelloWorldApp />
+//   </React.StrictMode>
+// )
 
 // Algo propi de Vite és la seva manera de canviar moduls en calent, super ràpid i útil.
 
