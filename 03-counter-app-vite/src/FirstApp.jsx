@@ -135,17 +135,17 @@
   // ⚠ Uncaught Error: Objects are not valid as a React child (found: [object Promise]). If you meant to render a collection of children, use an array instead.
 
 // Ex. més avançat:
-// const getResult = (a,b) => {
-//   return a + b;
-// }
-// export const FirstApp = () => {
-//   return (
-//     <>
-//       <h1>{ getResult(1,10) }</h1> 
-//       <p>Sóc un subtítol</p>
-//     </>
-//   )
-// }
+const getResult = (a,b) => {
+  return a + b;
+}
+export const FirstApp = () => {
+  return (
+    <>
+      <h1>{ getResult(1,10) }</h1> 
+      <p>Sóc un subtítol</p>
+    </>
+  )
+}
   // Apareix un '11' en pantalla
 
 
@@ -163,25 +163,25 @@
 //     </>
 //   )
 // }
-  // Apareix un '11' en pantalla
+  // En aquest exemple no és de bona pràctica posar la funció dins del component.
 
 // Una norma que podriem seguir és si les funcions no tenen cap mena de dependència del comportament intern del component, van FORA, de manera predeteminada. 
   // Per exemple, si tinc una variable ('name') i la funció 'getResult' necessités la referència de name, 'getResult' podria estar dins.
-  export const FirstApp = () => {
+  // export const FirstApp = () => {
 
-    const getResult = (a,b) => {
-      return a + b + name;
-    }
+  //   const getResult = (a,b) => {
+  //     return a + b + name;
+  //   }
 
-    const name = 'Ester';
+  //   const name = 'Ester';
 
-    return (
-      <>
-        <h1>{ getResult(1,10) }</h1> 
-        <p>Sóc un subtítol</p>
-      </>
-    )
-  }
+  //   return (
+  //     <>
+  //       <h1>{ getResult(1,10) }</h1> 
+  //       <p>Sóc un subtítol</p>
+  //     </>
+  //   )
+  // }
 
 // ⚠ De manera predeterminada, col·locar les funcions FORA dels components.
 

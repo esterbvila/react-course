@@ -1,0 +1,19 @@
+
+/* -------- 39. Colocar estils de CSS -------- */
+
+/*  Amb React podem utilitzar molts tipos d'estils diferents: Tailwind, Sass, Less...
+
+La manera més bàsica d'aplicar estils (imaginant que vull crear un estil global, aplicant-se a tots els components) és creant un arixu css (aquest mateix) a la carpeta 'src' */
+
+html, body {
+  background-color:#21232A;
+  color:white;
+  font-family: Helvetica, Arial, sans-serif; /* Són fallback fonts */
+  font-size:1.3rem; /* Perquè aquesta mida s'ajusti en pantalles de diverses mides */
+  padding: 70px;
+}
+
+/* Per ordenar alfaveticament les propietats, les seleccionem tots -> Command + Shift + p -> Sort lines ascending */
+
+/* Com vull que això sigui un estil global, que tota l'app ho utilitzi, el puc col·locar com una referencia a 'main.jsx'  */
+

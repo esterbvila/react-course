@@ -1,17 +1,14 @@
 
-
-/* -------- 37. Retornar elementos en el Componente - Fragment -------- */
-
-
-
-
-
-/* -------- 36. Tarea: Crear un nuevo Componente -------- */
+/* -------- 39. Colocar estils de CSS -------- */
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { FirstApp } from './FirstApp';
 import { HelloWorldApp } from './HelloWorldApp';
+
+// Importem els estils globals:
+import './styles.css';
+
 
 ReactDOM.createRoot( document.getElementById('root') ).render(
   <React.StrictMode>
@@ -19,6 +16,24 @@ ReactDOM.createRoot( document.getElementById('root') ).render(
     <FirstApp />
   </React.StrictMode>
 )
+
+
+
+
+
+/* -------- 36. Tarea: Crear un nuevo Componente -------- */
+
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import { FirstApp } from './FirstApp';
+// import { HelloWorldApp } from './HelloWorldApp';
+
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <HelloWorldApp />
+//     <FirstApp />
+//   </React.StrictMode>
+// )
 
 
 
