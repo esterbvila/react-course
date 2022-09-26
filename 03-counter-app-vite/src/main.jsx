@@ -1,21 +1,132 @@
 
-/* -------- 39. Colocar estils de CSS -------- */
+/* -------- 42. DefaultProps  -------- */
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { FirstApp } from './FirstApp';
-import { HelloWorldApp } from './HelloWorldApp';
 
-// Importem els estils globals:
 import './styles.css';
 
 
 ReactDOM.createRoot( document.getElementById('root') ).render(
   <React.StrictMode>
-    <HelloWorldApp />
-    <FirstApp />
+    <FirstApp/> 
   </React.StrictMode>
 )
+
+
+/* -------- 41. PropTypes  -------- */
+
+// Eliminem les props de '<FirstApp />'
+
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import { FirstApp } from './FirstApp';
+
+// import './styles.css';
+
+
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <FirstApp />
+//   </React.StrictMode>
+// )
+
+// Li afegeixo xifres a la property title per provar si el requeriment 'string' funciona a la property 'title':
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <FirstApp title={ 123 }/>
+//   </React.StrictMode>
+// )
+
+// Provo de treure-li qualsevol valor a la property 'title' (si escrivissim '<FirstApp title={ true }/>' seria el mateix):
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <FirstApp title/> 
+//   </React.StrictMode>
+// )
+
+// Li escric una string:
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <FirstApp title="M'agrada la lassagna"/> 
+//   </React.StrictMode>
+// )
+
+// Al tenir a 'FirstApp.jsx' 'title: PropTypes.string.isRequired', li buido el contingut aquí per forçar un error i que ni es mostri en pantalla:
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <FirstApp /> 
+//   </React.StrictMode>
+// )
+
+// Si a 'FirstApp.jsx' -> 'title: PropTypes.string.isRequired,subTitle: PropTypes.number.isRequired' :
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <FirstApp title="M'agrada la lassagna" /> 
+//   </React.StrictMode>
+// )
+
+// Si a 'FirstApp.jsx' -> 'title: PropTypes.string.isRequired,subTitle: PropTypes.number.isRequired' :
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <FirstApp title="M'agrada la lassagna" subTitle={ 123 }/> 
+//   </React.StrictMode>
+// )
+
+
+
+
+
+
+/* -------- 40. Comunicació entre Components - Props  -------- */
+
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import { FirstApp } from './FirstApp';
+
+// import './styles.css';
+
+// Quan crido el component '<FirstApp />' per construïr-lo, li afegeixo 3 propietats amb els seus respectius valors: 'Title','subTitle' i 'paragraph'.
+
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <FirstApp title="M'agrada el lemon pie" subTitle="Especialment el de Farga" paragraph="123"/>
+//   </React.StrictMode>
+// )
+
+// Quan gravem els canvis, al navegador veiem 'M'agrada el lemon pie'. Si mirem a '⚛️ components' i clickem a 'FiRSTapp', veurem que ara a les props estarem rebent el mateix títol i subtítol: {"title": "M'agrada el lemon pie", "subTitle": "Especialment el de Farga"}.
+
+// Si vulguessim sumar-li una xifra a una de les props, ho modificariem així:
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <FirstApp title="M'agrada el lemon pie" subTitle="Especialment el de Farga" paragraph={ 123 }/>
+//   </React.StrictMode>
+// )
+
+//* Tot el que afegim després de '<FirstApp' són propietats(props) que estem enviant del component pare al component fill. 
+
+
+
+
+
+
+
+/* -------- 39. Colocar estils de CSS -------- */
+
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import { FirstApp } from './FirstApp';
+
+// Importem els estils globals:
+// import './styles.css';
+
+
+// ReactDOM.createRoot( document.getElementById('root') ).render(
+//   <React.StrictMode>
+//     <FirstApp />
+//   </React.StrictMode>
+// )
 
 
 

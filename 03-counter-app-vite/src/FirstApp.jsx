@@ -1,4 +1,269 @@
 
+/* -------- 43. Tasca - Component CounterApp  -------- */
+
+
+
+
+
+
+/* -------- 42. DefaultProps  -------- */
+
+// Si a les properties els volem definir valors per defecte, és a dir, que quan no se'ls passi cap valor en puguin tenir sempre un disponible:
+ // Manera 1 (Definint-los a dalt):  
+  import PropTypes from 'prop-types';
+
+  // export const FirstApp = ({
+  //   title ,
+  //     subTitle = 'La terra explota!'
+  //   }) => {
+  //   return (
+  //     <>
+  //       <h1>{ title }</h1> 
+  //       <p>{ subTitle }</p>
+  //     </>
+  //   )
+  // }
+  // FirstApp.propTypes = {
+  //   title: PropTypes.string.isRequired,
+  //   subTitle: PropTypes.number,
+  // }
+    // A la pantalla visualitzem 'La terra explota!', i a la consola (Warning: Failed prop type: The prop `title` is marked as required in `FirstApp`, but its value is `undefined`.at FirstApp)
+    // Si hi ha moltes properties, definir-les totes a dalt pot resultar incòmode
+
+  // Manera 2 (Definint-los a baix).
+  export const FirstApp = ({ title , subTitle, name }) => {
+    return (
+      <>
+        <h1>{ title }</h1> 
+        <p>{ subTitle }</p>
+        <p>{ name }</p>
+      </>
+    )
+  }
+  FirstApp.propTypes = {
+    subTitle: PropTypes.string,
+    title: PropTypes.string.isRequired,
+  }
+
+  FirstApp.defaultProps = {
+    name : 'Ester ',
+    subTitle : 'No hi ha subtítol',
+    title : 'No hi ha títol',
+  }
+    // En la pantalla es mostra 'No hi ha títol', 'No hi ha subtítol', 'Ester'.
+    // Habitualment es situa la secció '.defaultProps...' al final, després del component.
+// Quan tinguem un Warning de prop type, a '⚛️ components', a la dreta del component afectat pel warning ens sortirà una alerta 𐄂.
+
+// Recomana ordenar ascendentment -> Cmnd + Shift + p -> 'Sort Lines Ascending'
+
+
+
+
+
+
+
+/* -------- 41. PropTypes  -------- */
+
+// import PropTypes from 'prop-types';
+
+// Parlarem d'una característica super poderosa que ens ofereixen els PropTypes, és a dir, les tipologies de les propietats. Si estem treballant amb CRA, el que utilitzarem ja ve importat per defecte, amb Vite, no.
+
+// Per a què em serveixen les PropTypes? Per definir-los la tipologia a les properties
+
+// Volem que qualsevol altre persona que utilitzi el component estableixi el títol obligatoriament, i si no ho fa aparegui un warning per saber que s'està utilitzant el component de manera inadecuada:
+
+// (no tenim afegit 'title' a les properties del pare '<FristApp />')
+
+  // 𐄂 Opció 1 SENSE PropTypes:
+  // export const FirstApp = ({ title , subTitle }) => {
+  //   if ( !title ) {
+  //     throw new Error('El title no existeix'); // Uncaught Error: El title no existeix
+  //   }
+  //   return (
+  //     <>
+  //       <h1>{ title }</h1> 
+  //       <p>{ subTitle }</p>
+  //     </>
+  //   )
+  // }
+    // Hi ha diversos inconvenients de fer-ho així. El problema és que el codi (if...}) està dins del component, és dificil de llegit i incrementa la complexitat del component innecessariament. 
+
+  // ✓ Opció 2 AMB PropTypes:
+  // export const FirstApp = ({ title , subTitle }) => {
+  //   return (
+  //     <>
+  //       <h1>{ title }</h1> 
+  //       <p>{ subTitle }</p>
+  //     </>
+  //   )
+  // }
+  // FirstApp.propTypes = {
+  //   title: PropTypes.string
+  // }
+    // Les importem amb "import PropTypes from 'prop-types'"
+    // Obrim la terminal i les instalem amb: npm install prop-types
+    // Com defineixo les properties? 'FirstApp.prototype..'
+    // Establiré com ha condició que el 'title' ha de ser un string. Escriuré 'PropTypes' amb 'P' majúscula aquesta vegada perqué m'estaré referint al paquet.
+    // Guardo als canvis i al navegador no apareix cap error, tot sembla que funciona. Perquè passa si se suposa que el title és undefined o null? 
+
+    // si a 'main.jsx' li afegeixo  '<FirstApp title={ 123 }/>', a la pantalla apareix '123' però a la consola em dona error: (Warning: Failed prop type: Invalid prop `title` of type `number` supplied to `FirstApp`, expected `string`. at FirstApp)
+
+    // si a 'main.jsx' li afegeixo  '<FirstApp title/>', la consola em dona un error similar : (Warning: Failed prop type: Invalid prop `title` of type `boolean` supplied to `FirstApp`, expected `string`.at FirstApp). Seria el mateix que si escrivissim '<FirstApp title={ true }/>'.
+
+    // si a 'main.jsx' li afegeixo ' <FirstApp title="M'agrada la lassagna"/>',ja no em dona error.
+
+
+// Puc dir-li que a part de ser un string, ha de ser obligatori, i que si no es dona, NO es mostri en pantalla i la consola mostri un error. Això ho farem amb '.isRequired' :
+// export const FirstApp = ({ title , subTitle }) => {
+//   return (
+//     <>
+//       <h1>{ title }</h1> 
+//       <p>{ subTitle }</p>
+//     </>
+//   )
+// }
+// FirstApp.propTypes = {
+//   title: PropTypes.string.isRequired,
+// }
+  // com '<FirstApp />' està buit, mostrarà un error: (Warning: Failed prop type: The prop `title` is marked as required in `FirstApp`, but its value is `undefined`.at FirstApp)
+
+
+// Si volem tipar també 'subTitle':
+// export const FirstApp = ({ title , subTitle }) => {
+//   return (
+//     <>
+//       <h1>{ title }</h1> 
+//       <p>{ subTitle }</p>
+//     </>
+//   )
+// }
+// FirstApp.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   subTitle: PropTypes.number.isRequired,
+// }
+  // Si a 'main.jsx' tenim '<FirstApp title="M'agrada la lassagna" />' a la consola ens dona un warning (Warning: Failed prop type: The prop `subTitle` is marked as required in `FirstApp`, but its value is `undefined`.at FirstApp) i a la pantalla es veurà 'M'agrada la lassagna'.
+  // Si a 'main.jsx' tenim '<FirstApp title="M'agrada la lassagna" subTitle={ 123 }/> ' a la pantalla es veurà 'M'agrada la lassagna' i '123'.
+
+
+
+
+
+
+
+
+
+/* -------- 40. Comunicación entre Componentes - Props  -------- */
+
+// Parlarem sobre les properties que els functional components reben. Normalment les 'props' es desestructuren. L'important es que rebem les props (que és un objecte). Aquest objecte pot tenir molta info. , depenent del context. Entenem el context quan tinguem una app que utilitzi un Router i pot ser que el Router envi funcions a aquestes properties, o pot ser que li envi certa informació basada en el context on estigui funcionant el component.
+
+// Si imprimim aquest objecte, veurem que a la consola ens apareix un objecte '{}'.
+// export const FirstApp = ( props ) => {
+
+//   console.log(props); // {}
+
+//   return (
+//     <>
+//       <h1>Ester</h1> 
+//       <p>Sóc un subtítol</p>
+//     </>
+//   )
+// }
+
+// * Aquestes props em permeten establir un canal de comunicació entre el pare ('<React.StrictMode></React.StrictMode>' de 'main.jsx') del meu component 'FirstApp' i el component 'FirstApp' en sí.
+
+
+// Què podem fer amb les properties?
+// Ex. 
+  // Imaginem que de les properties estic esperant el title. 
+  // Al escriure '{ props. title }' em renderitza l'h1 buit. És com si en comptes de 'props. title' hi tingués escrit un 'undefined'.
+// export const FirstApp = ( props ) => {
+
+//   console.log(props); // {}
+
+//   return (
+//     <>
+//       <h1>{ props. title }</h1> 
+//       <p>Sóc un subtítol</p>
+//     </>
+//   )
+// }
+
+// Anant al navegador i a '⚛️ components' (dev. tool de react), veurem el nom del component 'FirstApp'. Aquí es visualitza tot l'arbre de components que tenim a l'app, més conegut com a context. Podem fer click i ens apareixen les props amb un input 'new entry:""'. Escriurem 'title' i a continuació un títol qualsevol, per exemple, 'M'agrada la xocolata'. Pressionem enter. Ens apareixerà 'M'agrada la xocolata' a la pantalla.
+
+// És molt extrany utilitzar les props com ho hem fet en el codi anterior, normalment es desestructuren els arguments que li estem enviant a la funció i li extreiem el que a nosalres ens interessa. En aquest cas, el 'title'. Al extreure el 'title' d'aquestes props, no cal que posem 'props.title':
+// export const FirstApp = ( { title } ) => {
+
+//   return (
+//     <>
+//       <h1>{ title }</h1> 
+//       <p>Sóc un subtítol</p>
+//     </>
+//   )
+// }
+
+
+// Si és recarrega el navegador web es perd la informació. 
+// Com ho podem fer per poder-li enviar, des del component pare, la informació que 'FirstApp' necessita?
+
+  // 𐄂 1) Opció d'enviar-li un valor per defecte:
+  // export const FirstApp = ( { title = "M'agrada el salmó" } ) => {
+
+  //   return (
+  //     <>
+  //       <h1>{ title }</h1> 
+  //       <p>Sóc un subtítol</p>
+  //     </>
+  //   )
+  // }
+    // Aquesta instrucció li diu que si el 'title' ve undefined, null o qualsevol altre valor null, utilitzi el missatge "M'agrada el salmó". No acaba de ser correcte, perquè jo no li vull enviar un valor per defecte, sinó establir-li un valor que SEMPRE el rebi.
+
+  // ✓ 2) 
+    // En el moment que jo estic cridant el component '<FirstApp />' a 'main.js' per construïr-lo, li afegeixo tres propietats amb els seus respectius valors: 'Title', 'subTitle' i 'paragraph: 
+
+    // export const FirstApp = ({ title , subTitle, paragraph}) => {
+
+    //   return (
+    //     <>
+    //       <h1>{ title }</h1> 
+    //       <p>{ subTitle }</p>
+    //       <p>{ paragraph }</p>
+    //     </>
+    //   )
+    // }
+    // Quan gravem els canvis, al navegador veiem 'M'agrada el lemon pie', 'Especialment el de Farga', '123'. Si mirem a '⚛️ components' i clickem a 'FirstApp', veurem que estarem rebent el mateix title, subTitle i paragraph: {"title": "M'agrada el lemon pie", "subTitle": "Especialment el de Farga", "paragraph: "123"}.
+
+
+// ⚠ Si vulguessim sumar-li una xifra a una de les props, NO es faria així, perquè l'estariem concatenant i donaria com a resultat un string '1231'
+// export const FirstApp = ({ title , subTitle, paragraph}) => {
+//   return (
+//     <>
+//       <h1>{ title }</h1> 
+//       <p>{ subTitle }</p>
+//       <p>{ paragraph + 1 }</p>
+//     </>
+//   )
+// }
+
+  // ✓ Es faria així: anem a 'main.jsx' i a 'subTitle' li canviem el valor a '{ 123 }'
+  // export const FirstApp = ({ title , subTitle, paragraph}) => {
+  //   return (
+  //     <>
+  //       <h1>{ title }</h1> 
+  //       <p>{ subTitle }</p>
+  //       <p>{ paragraph + 1 }</p>
+  //     </>
+  //   )
+  // }
+    // A la pantalla ens surt '124'
+
+
+
+  
+
+
+
+
+
 /* -------- 38. Impresión de Variables en el HTML -------- */
 
 // Quines coses podem imprimir en els nostres components. En altres paraules, com ho fem per imprimir alguna cosa en l'HTML. 
@@ -135,17 +400,17 @@
   // ⚠ Uncaught Error: Objects are not valid as a React child (found: [object Promise]). If you meant to render a collection of children, use an array instead.
 
 // Ex. més avançat:
-const getResult = (a,b) => {
-  return a + b;
-}
-export const FirstApp = () => {
-  return (
-    <>
-      <h1>{ getResult(1,10) }</h1> 
-      <p>Sóc un subtítol</p>
-    </>
-  )
-}
+// const getResult = (a,b) => {
+//   return a + b;
+// }
+// export const FirstApp = () => {
+//   return (
+//     <>
+//       <h1>{ getResult(1,10) }</h1> 
+//       <p>Sóc un subtítol</p>
+//     </>
+//   )
+// }
   // Apareix un '11' en pantalla
 
 
@@ -183,7 +448,7 @@ export const FirstApp = () => {
   //   )
   // }
 
-// ⚠ De manera predeterminada, col·locar les funcions FORA dels components.
+// * De manera predeterminada, col·locar les funcions FORA dels components.
 
 
 
