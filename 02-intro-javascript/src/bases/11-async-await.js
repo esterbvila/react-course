@@ -1,5 +1,7 @@
 
 // Async i Await. 
+// You can see that we use the “async” keyword for the wrapper function printMyAsync. This lets JavaScript know that we are using async/await syntax, and is necessary if you want to use Await.
+// Await makes your asynchronous code look more like synchronous/procedural code, which is easier for humans to understand.
 
 // Com retornar una url amb una promesa:
 const getImagenPromesa = () => {

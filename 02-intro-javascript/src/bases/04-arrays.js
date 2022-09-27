@@ -31,9 +31,10 @@ const arreglo6 = [1,2,3,4];
 let arreglo7 = [ ...arreglo6, 5 ];
 console.log( arreglo7 )
 
-// Això dona error: "undefined is not a function". Map espera una funció. Array.prototype.map() crea un nou array....:
+
 //const arreglo8 = arreglo7.map();
 //console.log( arreglo8 )
+  // Això dona error: "undefined is not a function". Map espera una funció. Array.prototype.map() crea un nou array....:
 
 
 // La function de dins és coneguda com a Callback, una funció que s'executarà dins del mètode map. La funció s'executarà per cada un dels elements d'arreglo9.

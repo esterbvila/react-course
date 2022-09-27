@@ -1,5 +1,6 @@
 
-// Object Literals
+// Object Literals. 
+// An Object Literal is a comma-separated list of name-value pairs inside of curly braces.
 
 const persona0 = {
 };

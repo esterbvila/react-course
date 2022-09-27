@@ -1,6 +1,7 @@
 import { getHeroeById3 } from './08-imp-exp';
 
 // Promises. Són asíncrones. Primer s'executarà el que és sincrònic.
+// The problem with callbacks is it creates something called “Callback Hell.” Basically, you start nesting functions within functions within functions, and it starts to get really hard to read the code. So in this situation Promises came to handle the nested callback in a better way.
 
 // Les promeses es creen amb un argument que és un callback. Aquest callback reb 2 arguments: un anomenat resolve i l'altre reject. 
 // setTimeout és una funció pròpia de js que permet rebre un callback (1er argument) i quantitat de milisegons a esperar per executar el callback (2on argument). 
@@ -10,12 +11,13 @@ const promesa = new Promise( ( resolve, reject ) => {
   }, 2000);
 });
 
-// Com fer algo quan la promesa acabi d'executar-se: 'then' significa que la promesa s'ha fet correctameent | 'catch' que ha donat un error | 'finally' és per alguna cosa que s'executarà després del 'then' i després del 'catch' (l'última cosa que s'executa)
+// Com fer algo quan la promesa acabi d'executar-se: 'then' significa que la promesa s'ha fet correctament | 'catch' que ha donat un error | 'finally' és per alguna cosa que s'executarà després del 'then' i després del 'catch' (l'última cosa que s'executa)
 promesa.then( () => {
   console.log('Then de la promesa') // ∅
 })
+  // ⚠ No ha aparegut 'Then de la promesa' a la consola perquè no estem rebent el 'then' de la promesa, en cap moment estem cridant el 'resolve' o el 'reject' de la promesa. Pel que la modificarem. En poques paraules li estarem dient: quan 'setTimeout' acabi, crides el 'resolve()' i aquest notificarà a qualsevol que estigui escoltant el 'then' i aquest executarà 'Then de la promesa'.
 
-// ⚠ No ha aparegut 'Then de la promesa' a la consola perquè no estem rebent el 'then' de la promesa, en cap moment estem cridant el 'resolve' o el 'reject' de la promesa. Pel que la modificarem. En poques paraules li estarem dient: quan 'setTimeout' acabi, crides el 'resolve()' i aquest notificarà a qualsevol que estigui escoltant el 'then' i aquest executarà 'Then de la promesa'.
+// Ben fet:
 const promesa2 = new Promise( ( resolve, reject ) => {
   setTimeout(() => {
     resolve();
@@ -38,7 +40,6 @@ promesa3.then( () => {
 });
 
 // Resposta: 
-
   // 1) A l'arxiu '08-imp-exp.js' he afegit 'export' a 'const getHeroeById3' i en aquest, he afegit 'import { getHeroeById3 } from './bases/08-imp-exp';. A la consola ens surt imprès l'heroi demanat: '{id: 2, name: 'Spiderman', owner: 'Marvel'}'
 
   // 2) Ara com ho faig per enviar l'heroi al 'then' de la promesa? Crido el 'resolve()' amb l'argument 'heroe' i 'resolve' transfereix el valor dels arguments ('heroe') a 'promesa.then()'. 
@@ -65,7 +66,7 @@ const promesa5 = new Promise( ( resolve, reject ) => {
   // 5) Per això escriuriem un 'catch', que rebria l'error i l'escriuria a la consola
 promesa5.then( ( heroe ) => {
   console.log('heroe', heroe) 
-}) // index.js:62 No se pudo encontrar el héroe
+}) // No se pudo encontrar el héroe
 .catch( err => console.warn( err ) );
 
 
@@ -82,7 +83,7 @@ promesa5.then( ( heroe ) => {
 getHeroeByIdAsync(4).then( ()=> {}) */
 
 
-// Això ho resolem afegint substituint 'const promesa =' per 'return' o també, tot i que és menys comú afegint 'return promesa;' al final de la funció.
+// Això ho resolem  substituint 'const promesa =' per 'return' o també, tot i que és menys comú afegint 'return promesa;' al final de la funció.
 const getHeroeByIdAsync2 = ( id ) => {
   return new Promise( ( resolve, reject ) => {
     setTimeout(() => {
@@ -112,7 +113,7 @@ const getHeroeByIdAsync3 = ( id ) => {
     }, 2000);
   });
 }
-getHeroeByIdAsync3(10) // index.js:125 No se pudo encontrar el héroe
+getHeroeByIdAsync3(10) //  No se pudo encontrar el héroe
   .then( heroe => console.log('Heroe', heroe ))
   .catch( err => console.warn( err ) );
 // També es podria fer:
