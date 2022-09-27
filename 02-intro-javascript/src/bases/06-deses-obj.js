@@ -57,7 +57,7 @@ const retornaPersona4 = ({ nombre, edad, rango = 'Capitán' }) => {
 }
 retornaPersona4 ( persona2 ); 
 
-// d) Crear un nou objecte que se li renanomeni el nom de dues propietats i que retorni un objecte. Molt utilitzat en React. 
+// d) Crear un nou objecte que se li reanomeni el nom de dues propietats i que retorni un objecte. Molt utilitzat en React. 
 const retornaPersona5 = ({ clave, nombre, edad, rango = 'Capitán' }) => { 
   return { 
     nombreClave: clave, 
